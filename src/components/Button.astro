@@ -1,0 +1,15 @@
+{
+  Astro.props.size === "normal" ? (
+    <button {...Astro.props} class="bg-black text-[50px] text-white">
+      normal
+    </button>
+  ) : (
+    <button {...Astro.props} class="bg-black text-[20px] text-white">
+      small
+    </button>
+  )
+}
+
+<button class={`bg-black ${Astro.props.num && "text-[90px]"} text-white`}>ddd</button>
+
+<i class="inline-block icon-a"></i>
