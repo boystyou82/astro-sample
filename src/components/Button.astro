@@ -1,15 +1,39 @@
-{
-  Astro.props.size === "normal" ? (
-    <button {...Astro.props} class="bg-black text-[50px] text-white">
-      normal
-    </button>
-  ) : (
-    <button {...Astro.props} class="bg-black text-[20px] text-white">
-      small
-    </button>
-  )
+---
+interface Props {
+  color?: "BLUE" | "WHITE";
+  size?: "NORMAL" | "LARGE" | "SMALL";
+  disabled?: boolean;
+  withIcon?: string;
 }
 
-<button class={`bg-black ${Astro.props.num && "text-[90px]"} text-white`}>ddd</button>
+let { color = "BLUE", size = "NORMAL", disabled = false, withIcon = "" } = Astro.props;
+withIcon !== "" && ((color = "BLUE"), (size = "LARGE"));
+---
 
-<i class="inline-block icon-a"></i>
+<button
+  type="button"
+  disabled={disabled}
+  class={`
+    flex justify-center items-center  disabled:cursor-not-allowed disabled:opacity-20 disabled:hover:border-0
+
+    ${
+      {
+        BLUE: "text-white bg-[#51a1de] hover:bg-[#4679ce] disabled:hover:bg-[#51a1de]",
+        WHITE: "text-[#222] bg-white border border-[#999] hover:border hover:border-[#222] disabled:bg-[#aaa]",
+      }[color]
+    }
+
+    ${
+      {
+        NORMAL: "rounded-[10px] px-[10px] w-[100px] h-10",
+        LARGE: "rounded-[10px] px-[15px] w-[120px] h-10",
+        SMALL: "rounded-[10px] px-[10px] min-w-[70px] h-[30px] text-sm",
+      }[size]
+    }
+
+    ${withIcon !== "" && "px-5 w-[170px] justify-between"}
+    `}
+>
+  <slot />
+  {withIcon !== "" && <i class={`inline-block ${withIcon}`} />}
+</button>

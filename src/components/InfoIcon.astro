@@ -1,0 +1,19 @@
+---
+interface Props {
+  icon: string;
+  name: string;
+  count?: number;
+}
+
+const { icon, name, count = 0 } = Astro.props;
+---
+
+<div
+  class="flex items-center text-[13px] text-[#222] [&_i:nth-child(1)]:hidden [&_span:nth-child(4)]:font-bold [&_span:nth-child(4)]:aria-disabled:text-[#999] [&_i:nth-child(2)]:aria-disabled:hidden [&_i:nth-child(1)]:aria-disabled:inline-flex"
+  aria-disabled={count > 0 ? "false" : "true"}
+>
+  <i class={`inline-flex ${icon}_off`}></i>
+  <i class={`inline-flex ${icon}_on`}></i>
+  <span class="ml-2">{name}</span>
+  <span class="ml-1">{count}</span>
+</div>

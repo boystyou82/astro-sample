@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GuideButton from "./_GuideButton.astro";
+import GuideColorPalette from "./_GuideColorPalette.astro";
+import GuideComment from "./_GuideComment.astro";
+import GuideForm from "./_GuideForm.astro";
+import GuideHeader from "./_GuideHeader.astro";
+import GuideIcon from "./_GuideIcon.astro";
+import GuideLogin from "./_GuideLogin.astro";
+import GuidePagination from "./_GuidePagination.astro";
+import GuideTypeface from "./_GuideTypeface.astro";
+---
+
+<Layout title="IMK Cloud UI Style Guide">
+  <GuideHeader />
+  <div class="px-20">
+    <GuideColorPalette />
+    <GuideTypeface />
+    <GuideLogin />
+    <GuideButton />
+    <GuideForm />
+    <GuidePagination />
+    <GuideIcon />
+    <GuideComment />
+  </div>
+</Layout>

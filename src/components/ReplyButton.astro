@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  count?: number;
+}
+
+const { count = 0, ...props } = Astro.props;
+---
+
+<button {...props} type="button" class="comment__reply text-sm text-[#aaa]">
+  {
+    count === 0 ? (
+      <span>답글 작성</span>
+    ) : (
+      <>
+        <span>답글</span>
+        <span class="ml-1 font-bold text-[#222]">{count}</span>
+      </>
+    )
+  }
+</button>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  color: string;
+}
+const { color } = Astro.props;
+---
+
+<dl class="flex items-center w-[84px]">
+  <dt><div class={`${color === "#ffffff" && "border"} rounded-full w-5 h-5`} style={`background-color:${color}`}></div></dt>
+  <dd class="ml-1 text-sm font-normal text-gray-600">{color}</dd>
+</dl>

@@ -1,0 +1,90 @@
+---
+import Checkbox from "../../components/Checkbox.astro";
+import Dropdown from "../../components/Dropdown.astro";
+import Input from "../../components/Input.astro";
+import Radio from "../../components/Radio.astro";
+import TextArea from "../../components/TextArea.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">Form Elements</h2>
+  <form>
+    <div class="flex my-10 gap-x-20">
+      <div>
+        <h3 class="text-2xl text-gray-500">Input & Multi Text</h3>
+        <div class="mt-5 space-y-2">
+          <div>
+            <Input type="text" id="sample1" placeholder="TEXT TEXT TEXT" />
+          </div>
+          <div>
+            <Input type="text" id="sample2" placeholder="TEXT TEXT TEXT" disabled />
+          </div>
+          <div>
+            <TextArea id="sample3" rows="4" placeholder="TEXT TEXT" />
+          </div>
+          <div>
+            <TextArea
+              id="sample4"
+              rows="4"
+              disabled
+              set:html={`
+입력된 상태 그대로
+보여야 됨
+
+- 끝 -
+`}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl text-gray-500">Dropdown</h3>
+        <div class="mt-5 space-y-2">
+          <Dropdown id="dropdown1" />
+          <Dropdown id="dropdown2" disabled />
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl text-gray-500">Checkbox</h3>
+        <div class="mt-5 space-y-2">
+          <div>
+            <div class="flex items-center mb-4">
+              <Checkbox id="checkbox-1">checkbox default</Checkbox>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center mb-4">
+              <Checkbox id="checkbox-2" checked>checkbox checked</Checkbox>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center mb-4">
+              <Checkbox id="checkbox-3" disabled>checkbox disabled</Checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-2xl text-gray-500">Radio</h3>
+        <div class="mt-5 space-y-2">
+          <div>
+            <div class="flex items-center mb-4">
+              <Radio name="default-radio" id="radio-1">radio default</Radio>
+            </div>
+            <div class="flex items-center mb-4">
+              <Radio checked name="default-radio" id="radio-2">radio checked</Radio>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center mb-4">
+              <Radio disabled name="default-radio" id="radio-3">radio disabled</Radio>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,102 @@
+---
+import Button from "../../components/Button.astro";
+import IconButton from "../../components/IconButton.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">Buttons</h2>
+
+  <div class="flex gap-20 my-10">
+    <div>
+      <h3 class="text-2xl text-gray-500">Large</h3>
+      <div class="flex gap-5">
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"LARGE"}>글쓰기</Button>
+          </div>
+          <div>
+            <Button size={"LARGE"} disabled>글쓰기</Button>
+          </div>
+        </div>
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"LARGE"} color={"WHITE"}>버튼명</Button>
+          </div>
+          <div>
+            <Button size={"LARGE"} color={"WHITE"} disabled>버튼명</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-2xl text-gray-500">Normal</h3>
+      <div class="flex gap-5">
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"NORMAL"}>목록</Button>
+          </div>
+          <div>
+            <Button size={"NORMAL"} disabled>목록</Button>
+          </div>
+        </div>
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"NORMAL"} color={"WHITE"}>취소</Button>
+          </div>
+          <div>
+            <Button size={"NORMAL"} color={"WHITE"} disabled>취소</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-2xl text-gray-500">Small</h3>
+      <div class="flex gap-5">
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"SMALL"}>등록</Button>
+          </div>
+          <div>
+            <Button size={"SMALL"} disabled>등록</Button>
+          </div>
+        </div>
+        <div class="mt-5 space-y-2">
+          <div>
+            <Button size={"SMALL"} color={"WHITE"}>등록</Button>
+          </div>
+          <div>
+            <Button size={"SMALL"} color={"WHITE"} disabled>등록</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex gap-20 my-10">
+    <div>
+      <h3 class="text-2xl text-gray-500">Buttons with icon</h3>
+      <div class="mt-5 space-y-2">
+        <div>
+          <Button withIcon="icon-clip_white">파일첨부</Button>
+        </div>
+        <div>
+          <Button withIcon="icon-clip_white" disabled>파일첨부</Button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-2xl text-gray-500">Icon Button</h3>
+      <div class="flex items-center mt-5 space-x-10">
+        <div>
+          <IconButton icon="icon-cross" />
+        </div>
+        <div>
+          <IconButton icon="icon-topArrow" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

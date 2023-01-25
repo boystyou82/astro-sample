@@ -1,0 +1,14 @@
+---
+interface Props {
+  icon: string;
+  checked?: boolean;
+}
+
+const { icon, checked = false } = Astro.props;
+---
+
+<label class="cursor-pointer">
+  <input type="checkbox" value="" class="sr-only peer" checked={checked} />
+  <i class={`inline-flex ${icon}_off peer-checked:hidden`}></i>
+  <i class={`hidden ${icon}_on peer-checked:inline-flex`}></i>
+</label>

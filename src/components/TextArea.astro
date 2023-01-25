@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"textarea"> {}
+
+const value = Astro.slots.render("default");
+---
+
+<textarea
+  class="block p-2.5 w-full text-[15px] text-gray-900 bg-white rounded-lg border focus:ring-0 focus:border-[#222] border-[#aaa] placeholder-[#aaaaaa] [&::placeholder]:focus:text-transparent justify-center items-center disabled:cursor-not-allowed disabled:opacity-20 disabled:border-0 disabled:bg-[#aaaaaa] disabled:[&::placeholder]:text-[#222]"
+  {...Astro.props}>{value}</textarea
+>

@@ -1,0 +1,146 @@
+---
+import CommentEditDeleteButton from "../../components/CommentEditDeleteButton.astro";
+import CommentTextArea from "../../components/CommentTextArea.astro";
+import CommentToggle from "../../components/CommentToggle.astro";
+import CommentView from "../../components/CommentView.astro";
+import InfoIcon from "../../components/InfoIcon.astro";
+import ReReplyClose from "../../components/ReReplyClose.astro";
+import ReplyButton from "../../components/ReplyButton.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">댓글</h2>
+
+  <div class="w-[1000px] mt-10">
+    <div>
+      <!-- 댓글 정보 표시(댓글/좋아요/채택) -->
+      <div class="flex gap-x-7">
+        <InfoIcon icon="icon-reply-info" name="댓글" count={28} />
+        <InfoIcon icon="icon-like-info" name="좋아요" count={2} />
+        <InfoIcon icon="icon-select-info" name="채택" count={3} />
+      </div>
+
+      <!-- 댓글 입력 창-->
+      <div class="mt-4"><CommentTextArea /></div>
+    </div>
+
+    <div class="reply-box">
+      <div class="py-4 border-b">
+        <CommentView />
+        <CommentTextArea />
+      </div>
+
+      <div class="re-reply-box bg-[#f4f4f4] px-12 pb-3 border-b hidden">
+        <div class="py-3">
+          <CommentTextArea />
+        </div>
+        <ReReplyClose />
+      </div>
+    </div>
+
+    <div class="reply-box">
+      <div class="py-4 border-b">
+        <div class="px-6 reply__view">
+          <div class="flex justify-between">
+            <div>
+              <span class="text-sm text-[#222]">송현철</span><span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+            </div>
+          </div>
+
+          <div class="mt-2 text-sm text-[#222]">
+            5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다. 바람도 약간 강하게 불면서 체감온도는 더 낮을 것으로 보인다. 기상청은 4일 “중부 내륙과 경북 내륙에 한파특보가 발효된
+            가운데, 5일까지 아침 기온이 중부 내륙과 경북 내륙은 영하 10도 내외, 특히 경기 북부와 강원 내륙·산지는 영하 15도 이하로 예상된다. 그 밖의 지역도 영하 5도 내외로 춥겠다”고 예보했다. 5일
+            낮부터는 평년(최고기온 1~9도) 기온을 회복할 전망이다.
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <ReplyButton count={2} />
+            <CommentToggle checkeds={[true, true]} />
+          </div>
+        </div>
+      </div>
+
+      <div class="re-reply-box bg-[#f4f4f4] px-12 pb-3 border-b" id="reply-2">
+        <div class="py-4 border-b">
+          <div class="reply__view">
+            <div class="flex justify-between">
+              <div>
+                <span class="text-sm text-[#222]">송현철</span><span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+              </div>
+            </div>
+
+            <div class="mt-2 text-sm text-[#222]">5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</div>
+
+            <div class="flex items-center justify-end mt-3">
+              <CommentToggle checkeds={[false, true]} />
+            </div>
+          </div>
+        </div>
+
+        <div class="py-4 border-b">
+          <div class="reply__view">
+            <div class="flex justify-between">
+              <div>
+                <span class="text-sm text-[#222]">송현철</span><span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+              </div>
+              <CommentEditDeleteButton />
+            </div>
+
+            <div class="mt-2 text-sm text-[#222]">5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</div>
+
+            <div class="flex items-center justify-end mt-3">
+              <CommentToggle />
+            </div>
+          </div>
+        </div>
+        <div class="py-3">
+          <CommentTextArea />
+        </div>
+        <ReReplyClose />
+      </div>
+    </div>
+
+    <div class="reply-box">
+      <div class="py-4 border-b">
+        <div class="px-6 reply__view">
+          <div class="flex justify-between">
+            <div>
+              <span class="text-sm text-[#222]">송현철</span>
+              <span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+            </div>
+            <CommentEditDeleteButton />
+          </div>
+          <div class="mt-2 text-sm text-[#222]">5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</div>
+          <div class="flex items-center justify-between mt-3">
+            <ReplyButton />
+            <CommentToggle />
+          </div>
+        </div>
+
+        <CommentTextArea hidden={true}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentTextArea>
+      </div>
+      <div class="re-reply-box bg-[#f4f4f4] px-12 pb-3 border-b hidden">
+        <div class="py-3">
+          <CommentTextArea />
+        </div>
+        <ReReplyClose />
+      </div>
+    </div>
+
+    <div class="py-4 border-b">
+      <div class="px-6 reply__view">
+        <div class="flex justify-between">
+          <div>
+            <span class="text-sm text-[#222]">송현철</span>
+            <span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+          </div>
+        </div>
+        <div class="mt-2 text-sm text-[#222]">5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</div>
+        <div class="flex items-center justify-between mt-3">
+          <ReplyButton />
+          <CommentToggle />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

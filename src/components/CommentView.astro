@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import ReplyButton from "./ReplyButton.astro";
+import CommentToggle from "./CommentToggle.astro";
+import CommentEditDeleteButton from "./CommentEditDeleteButton.astro";
+
+interface Props extends HTMLAttributes<"textarea"> {
+  editDeleteHidden?: boolean;
+  replyCount?: number;
+  commentToggle?: [boolean, boolean];
+  withReply?: boolean;
+}
+
+const { editDeleteHidden = true, replyCount = 0, commentToggle = [false, false], withReply = true } = Astro.props;
+
+const value = Astro.slots.render("default");
+---
+
+<div class={`relative comment-view`}>
+  <div class="flex justify-between">
+    <div>
+      <span class="text-sm text-[#222]">정은경</span><span class="ml-6 text-xs text-[#aaa]">2022.12.23</span>
+    </div>
+    {editDeleteHidden ? null : <CommentEditDeleteButton />}
+  </div>
+
+  <div class="mt-2 text-sm text-[#222]">
+    {value}
+  </div>
+
+  <div class="flex items-center justify-between mt-3">
+    <div>{withReply ? <ReplyButton count={replyCount} /> : null}</div>
+    <div><CommentToggle checkeds={commentToggle} /></div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+import InputId from "../../components/InputId.astro";
+import InputPassword from "../../components/InputPassword.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">Login</h2>
+
+  <div class="flex justify-center mt-20">
+    <div class="p-12 bg-gray-100 rounded-[50px] w-[500px]">
+      <form>
+        <div class="flex flex-col gap-y-[20px]">
+          <InputId /><InputPassword />
+        </div>
+        <div class="mt-[50px]">
+          <button type="button" class="w-full h-[60px] text-[28px] font-medium text-white bg-[#091432] rounded-[15px] hover:bg-[#183477]"> LOGIN</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

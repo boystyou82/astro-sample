@@ -1,0 +1,58 @@
+---
+import InfoIcon from "../../components/InfoIcon.astro";
+import ToggleIcon from "../../components/ToggleIcon.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">ICON</h2>
+
+  <div class="my-10 space-y-2">
+    <dl class="flex">
+      <dt class="text-sm text-gray-500 w-60">댓글 : 데이터 없을 경우</dt>
+      <dd class="w-28">
+        <InfoIcon icon="icon-reply-info" name="댓글" count={0} />
+      </dd>
+      <dd class="w-28">
+        <InfoIcon icon="icon-like-info" name="좋아요" count={0} />
+      </dd>
+      <dd class="w-28">
+        <InfoIcon icon="icon-select-info" name="채택" count={0} />
+      </dd>
+    </dl>
+    <dl class="flex">
+      <dt class="text-sm text-gray-500 w-60">댓글 : 데이터 있을 경우</dt>
+      <dd class="w-28">
+        <InfoIcon icon="icon-reply-info" name="댓글" count={28} />
+      </dd>
+      <dd class="w-28">
+        <InfoIcon icon="icon-like-info" name="좋아요" count={2} />
+      </dd>
+      <dd class="w-28">
+        <InfoIcon icon="icon-select-info" name="채택" count={3} />
+      </dd>
+    </dl>
+  </div>
+
+  <div class="my-10 space-y-2">
+    <dl class="flex">
+      <dt class="text-sm text-gray-500 w-60">댓글 : 좋아요 / 채택 비활성</dt>
+
+      <dd class="w-16">
+        <ToggleIcon icon="icon-like" />
+      </dd>
+      <dd class="w-16">
+        <ToggleIcon icon="icon-select" />
+      </dd>
+    </dl>
+    <dl class="flex">
+      <dt class="text-sm text-gray-500 w-60">댓글 : 좋아요 / 채택 활성</dt>
+
+      <dd class="w-16">
+        <ToggleIcon icon="icon-like" checked />
+      </dd>
+      <dd class="w-16">
+        <ToggleIcon icon="icon-select" checked />
+      </dd>
+    </dl>
+  </div>
+</div>

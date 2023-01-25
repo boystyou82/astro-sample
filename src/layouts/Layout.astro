@@ -12,9 +12,15 @@ const { title } = Astro.props;
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/assets/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/flowbite.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/icons/icons.css" />
+    <link rel="stylesheet" href="/assets/imk_cloud_styles.css" />
+    <script defer src="/assets/plugins/flowbite.min.js"></script>
+    <script defer type="module" src="/assets/imk_cloud_scripts.js"></script>
   </head>
   <body>
-    <slot />
+    <div id="app">
+      <slot />
+    </div>
   </body>
 </html>

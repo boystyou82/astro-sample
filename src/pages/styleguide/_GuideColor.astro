@@ -1,0 +1,11 @@
+---
+interface Props {
+    color: string;
+}
+const { color } = Astro.props;
+---
+
+<dl>
+    <dt><div class={`${color === "#ffffff" && "border"} rounded w-32 h-12`} style={`background-color:${color}`}></div></dt>
+    <dd>{color}</dd>
+</dl>

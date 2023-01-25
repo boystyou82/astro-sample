@@ -1,0 +1,109 @@
+---
+interface Props {
+  total: number;
+  pagesPerView: number;
+  current: number;
+}
+
+const { total, pagesPerView, current } = Astro.props;
+let pageArray: number[] = [];
+let i = 0;
+let startPageNumber = Math.floor((current - 1) / pagesPerView) * pagesPerView;
+---
+
+<div>
+  <div></div>
+  <div>
+    <nav aria-label="page navigation">
+      {
+        total === 1 ? (
+          <ul class="flex items-center gap-x-3 opacity-40">
+            <li>
+              <a class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222]">
+                <span class="sr-only">Previous</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="inline-flex w-[38px] h-[38px] rounded-full justify-center items-center text-[#666]">1</a>
+            </li>
+
+            <li>
+              <a class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222]">
+                <span class="sr-only">Next</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        ) : (
+          <ul class="flex items-center gap-x-3">
+            {current > pagesPerView && (
+              <>
+                <li>
+                  <a href="#" class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222] hover:bg-[#d1e7f3]">
+                    <span class="sr-only">first</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                    </svg>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222] hover:bg-[#d1e7f3]">
+                    <span class="sr-only">Previous</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </a>
+                </li>
+              </>
+            )}
+
+            {() => {
+              for (i = startPageNumber; i < total && i < startPageNumber + pagesPerView; i++) {
+                pageArray.push(i);
+              }
+
+              return pageArray.map((item) => (
+                <li>
+                  <a
+                    href="#"
+                    aria-current={current - 1 === item ? "page" : null}
+                    class={`${current - 1 === item ? "text-[#222] font-bold" : "text-[#666]"} inline-flex w-[38px] h-[38px] rounded-full justify-center items-center hover:bg-[#d1e7f3]`}
+                  >
+                    {item + 1}
+                  </a>
+                </li>
+              ));
+            }}
+
+            {current <= (Math.ceil(total / pagesPerView) - 1) * pagesPerView && (
+              <>
+                <li>
+                  <a href="#" class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222] hover:bg-[#d1e7f3]">
+                    <span class="sr-only">Next</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="inline-flex w-[38px] h-[38px] bg-[#eee] rounded-full justify-center items-center text-[#222] hover:bg-[#d1e7f3]">
+                    <span class="sr-only">Last</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </li>
+              </>
+            )}
+          </ul>
+        )
+      }
+    </nav>
+  </div>
+</div>

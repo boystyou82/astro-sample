@@ -1,0 +1,22 @@
+---
+import ToggleIcon from "./ToggleIcon.astro";
+interface Props {
+  checkeds?: [boolean, boolean];
+}
+
+const { checkeds = [false, false] } = Astro.props;
+---
+
+<div class="flex gap-x-7">
+  <div><ToggleIcon icon="icon-like" checked={checkeds[0]} /></div>
+
+  <div class="relative select-toggle">
+    <div
+      class="toast transition opacity-0 aria-checked:animate-toast translate-x-0 absolute -left-[18px] -top-[40px] w-[60px] h-[30px] bg-black rounded-[30px] text-[13px] text-[#fff] flex justify-center items-center font-light"
+      aria-checked="false"
+    >
+      채택
+    </div>
+    <ToggleIcon icon="icon-select" checked={checkeds[1]} />
+  </div>
+</div>

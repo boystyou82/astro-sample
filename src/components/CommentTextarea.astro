@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"textarea"> {}
+
+const value = Astro.slots.render("default");
+---
+
+<div class={`relative comment-textarea`}>
+  <textarea
+    {...Astro.props}
+    aria-busy="false"
+    class="comment__textarea block py-11 px-6 w-full resize-none border-[#aaa] focus:border-[#222] focus:ring-0 h-[100px] text-sm focus:h-[140px] transition-height placeholder-[#aaaaaa] [&::placeholder]:focus:text-transparent peer overflow-hidden"
+    placeholder="댓글을 남겨보세요">{value}</textarea
+  >
+
+  <p class="comment__header absolute top-0 left-0 text-sm text-[#222] pt-4 pl-6 peer-focus:[&_span:nth-child(2)]:hidden peer-aria-[busy=true]:[&_span:nth-child(2)]:hidden">
+    <span>정은경</span><span class="text-[13px]"> 님,</span>
+  </p>
+
+  <p class="comment__count hidden peer-focus:block peer-aria-[busy=true]:block peer-aria-[busy=true]:[&_span]:text-[#222] absolute bottom-4 reply_count text-[12px] text-[#aaa] left-6">
+    <span class="comment__current-count">0</span> / <span class="comment__max-count">500</span>
+  </p>
+
+  <div class="absolute hidden gap-6 bottom-3 right-6 peer-focus:flex peer-aria-[busy=true]:flex peer-aria-[busy=true]:[&_button:nth-child(1)]:inline-block">
+    <button type="button" class="comment__cancel hidden text-[13px] text-[#aaa]"> 취소</button>
+    <button
+      disabled
+      type="button"
+      class="comment__apply flex text-white bg-[#51a1de] hover:bg-[#4679ce] rounded-[10px] px-[10px] min-w-[70px] h-[30px] text-sm justify-center items-center whitespace-nowrap disabled:text-[#222] disabled:bg-[#aaa] disabled:cursor-not-allowed disabled:opacity-20"
+    >
+      등록
+    </button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"input"> {}
+
+const { id, checked, disabled, ...props } = Astro.props;
+---
+
+<input
+  id={id}
+  checked={checked}
+  disabled={disabled}
+  type="radio"
+  {...props}
+  class="w-[16px] h-[16px] ring-offset-0 border-0 ring-1 ring-[#aaa] text-[#28a4e4] checked:bg-none checked:border-[3px] checked:border-white checked:ring-[#28a4e4] checked:ring-2 focus:ring-offset-0 focus:ring-[#28a4e4] disabled:opacity-20 disabled:bg-[#aaa] peer"
+/>
+<label for={id} class="ml-2 text-sm text-[#222] peer-disabled:opacity-20"><slot /></label>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  icon: string;
+}
+
+const { icon } = Astro.props;
+---
+
+<button type="button" class="button text-white [&_i:nth-child(2)]:hidden [&_i:nth-child(1)]:hover:hidden [&_i:nth-child(2)]:hover:inline-block inline-flex">
+  <i class={`inline-block ${icon}_off`}></i><i class={`inline-block ${icon}_on`}></i>
+</button>

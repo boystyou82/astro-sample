@@ -1,0 +1,87 @@
+---
+import InfoIcon from "../../components/InfoIcon.astro";
+import ReplyClose from "../../components/ReplyClose.astro";
+import CommentView from "../../components/CommentView.astro";
+import CommentTextarea from "../../components/CommentTextarea.astro";
+---
+
+<div class="py-20 border-b">
+  <h2 class="font-sans text-4xl font-bold">댓글</h2>
+
+  <div class="w-[1000px] mt-10">
+    <div>
+      <!-- 댓글 정보 표시(댓글/좋아요/채택) -->
+      <div class="flex gap-x-7">
+        <InfoIcon icon="icon-reply-info" name="댓글" count={28} />
+        <InfoIcon icon="icon-like-info" name="좋아요" count={2} />
+        <InfoIcon icon="icon-select-info" name="채택" count={3} />
+      </div>
+
+      <!-- 댓글 입력 창-->
+      <div class="mt-4"><CommentTextarea /></div>
+    </div>
+
+    <div class="comment-box">
+      <div class="py-4 border-b">
+        <div class="px-6">
+          <CommentView editDeleteHidden={false} commentToggle={[true, false]}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView>
+        </div>
+        <div class="hidden">
+          <CommentTextarea>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentTextarea>
+        </div>
+      </div>
+
+      <div class="comment-box bg-[#f4f4f4] px-6 pb-3 border-b hidden">
+        <div class="py-3">
+          <div class="px-6">
+            <CommentTextarea />
+          </div>
+        </div>
+        <ReplyClose />
+      </div>
+    </div>
+
+    <div class="comment-box">
+      <div class="py-4 border-b">
+        <div class="px-6">
+          <CommentView replyCount={2} commentToggle={[true, true]}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView>
+        </div>
+      </div>
+
+      <div class="comment-box bg-[#f4f4f4] px-12 pb-3 border-b">
+        <div class="py-3 border-b">
+          <div class=""><CommentView replyCount={2} withReply={false}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView></div>
+        </div>
+        <div class="py-3 border-b comment-box">
+          <div class="">
+            <CommentView editDeleteHidden={false} replyCount={2} commentToggle={[false, true]} withReply={false}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView>
+          </div>
+          <div class="hidden"><CommentTextarea>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentTextarea></div>
+        </div>
+        <div class="py-3">
+          <CommentTextarea />
+        </div>
+        <ReplyClose />
+      </div>
+    </div>
+
+    <div class="comment-box">
+      <div class="py-4 border-b">
+        <div class="px-6">
+          <CommentView replyCount={2} commentToggle={[true, true]} editDeleteHidden={false}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView>
+        </div>
+        <div class="hidden"><CommentTextarea>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentTextarea></div>
+      </div>
+
+      <div class="comment-box bg-[#f4f4f4] px-12 pb-3 border-b hidden">
+        <div class="py-3 border-b">
+          <div class=""><CommentView replyCount={2}>5일 아침 기온이 영하 15도까지 떨어지면서 전국이 매우 추울 전망이다.</CommentView></div>
+        </div>
+        <div class="py-3">
+          <CommentTextarea />
+        </div>
+        <ReplyClose />
+      </div>
+    </div>
+  </div>
+</div>
